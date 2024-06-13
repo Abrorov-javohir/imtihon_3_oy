@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:imtihon_3_oy/view_model/favourites_view_model.dart';
+import 'package:provider/provider.dart';
 
 class CustomCard extends StatefulWidget {
   const CustomCard({super.key});
@@ -13,6 +15,14 @@ class _CustomCardState extends State<CustomCard> {
 
   @override
   Widget build(BuildContext context) {
+    final favoritesViewModel =
+        Provider.of<FavoritesViewModel>(context, listen: false);
+    final course = Course(
+      imageUrl: 'assets/lamborgini.png',
+      title: 'Lamborgini 303',
+      price: 493030220,
+    );
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -108,6 +118,11 @@ class _CustomCardState extends State<CustomCard> {
                   setState(() {
                     isLiked1 = !isLiked1;
                   });
+                  if (isLiked1) {
+                    favoritesViewModel.addToFavorites(course);
+                  } else {
+                    favoritesViewModel.removeFromFavorites(course);
+                  }
                 },
                 icon: Icon(
                   CupertinoIcons.heart_fill,

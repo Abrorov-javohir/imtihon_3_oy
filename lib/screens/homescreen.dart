@@ -247,7 +247,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           Image.asset('assets/image1.png',
                               width: 60, height: 60),
                           const SizedBox(height: 10),
-                          const Text("Classic"),
+                          const Text(
+                            "Classic",
+                            style: TextStyle(
+                              color: Color(0xffB5BBCF),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -265,7 +270,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           Image.asset('assets/image2.png',
                               width: 60, height: 60),
                           const SizedBox(height: 10),
-                          const Text("Turbo"),
+                          const Text(
+                            "Turbo",
+                            style: TextStyle(
+                              color: Color(0xffB5BBCF),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -282,8 +292,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Image.asset('assets/image3.png',
                               width: 60, height: 60),
-                          SizedBox(height: 10),
-                          Text("F1"),
+                          const SizedBox(height: 10),
+                          const Text(
+                            "F1",
+                            style: TextStyle(
+                              color: Color(0xffB5BBCF),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -300,8 +315,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Image.asset('assets/image4.png',
                               width: 60, height: 60),
-                          SizedBox(height: 10),
-                          Text("Gybrid"),
+                          const SizedBox(height: 10),
+                          const Text(
+                            "Gybrid",
+                            style: TextStyle(
+                              color: Color(0xffB5BBCF),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -331,9 +351,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(height: 20),
-              CustomCardWithRow(),
-              CustomCardWithRow(),
-              SizedBox(height: 20),
+              const CustomCardWithRow(),
+              const CustomCardWithRow(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -357,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FavoritesPage()),
+                  MaterialPageRoute(builder: (context) => const FavoritesPage()),
                 );
               },
             ),
