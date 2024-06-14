@@ -75,6 +75,7 @@ class _CustomCardState extends State<CustomCard> {
                 Icon(
                   Icons.directions_car,
                   color: Colors.grey,
+                  
                   size: 20,
                 ),
                 SizedBox(width: 4),

@@ -1,6 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:imtihon_3_oy/screens/classic_car_screen.dart';
+import 'package:imtihon_3_oy/screens/f1_screen.dart';
 import 'package:imtihon_3_oy/screens/favoritescreen.dart';
+import 'package:imtihon_3_oy/screens/gybrid_screen.dart';
+import 'package:imtihon_3_oy/screens/hatchback_screen.dart';
+import 'package:imtihon_3_oy/screens/model_screen.dart';
+import 'package:imtihon_3_oy/screens/recomendation_screen.dart';
+import 'package:imtihon_3_oy/screens/sedan_screen.dart';
+import 'package:imtihon_3_oy/screens/turbo_screen.dart';
+import 'package:imtihon_3_oy/screens/view_all.dart';
 import 'package:imtihon_3_oy/widget/custom_card.dart';
 import 'package:imtihon_3_oy/widget/custom_card_with_row.dart';
 
@@ -108,77 +117,113 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              const SingleChildScrollView(
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      color: Color(0xfff8f8f8),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          "Sedan",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SedanScreen()),
+                        );
+                      },
+                      child: const Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        color: Color(0xfff8f8f8),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Sedan",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      color: Color(0xfff8f8f8),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          "Hatchback",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
+                    const SizedBox(width: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HatchbackScreen()),
+                        );
+                      },
+                      child: const Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        color: Color(0xfff8f8f8),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Hatchback",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      color: Color(0xfff8f8f8),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          "Classic",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
+                    const SizedBox(width: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ClassicCarScreen()),
+                        );
+                      },
+                      child: const Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        color: Color(0xfff8f8f8),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Classic",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      color: Color(0xfff8f8f8),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          "Model",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
+                    const SizedBox(width: 10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ModelScreen()),
+                        );
+                      },
+                      child: const Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        color: Color(0xfff8f8f8),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Text(
+                            "Model",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
@@ -187,23 +232,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Recommendation",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RecomendationScreen()),
+                      );
+                    },
+                    child: const Text(
+                      "Recommendation",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff000000),
+                      ),
                     ),
                   ),
-                  Text(
-                    "View All",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff8F95AB),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewAll()),
+                      );
+                    },
+                    child: const Text(
+                      "View All",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff8F95AB),
+                      ),
                     ),
                   ),
                 ],
@@ -220,12 +283,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
-                "Top Category Car",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff000000),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Top Category Car",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
@@ -234,118 +300,172 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: 100,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/image1.png',
-                              width: 60, height: 60),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Classic",
-                            style: TextStyle(
-                              color: Color(0xffB5BBCF),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ClassicCarScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/image1.png',
+                                width: 60, height: 60),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "Classic",
+                              style: TextStyle(
+                                color: Color(0xffB5BBCF),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/image2.png',
-                              width: 60, height: 60),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Turbo",
-                            style: TextStyle(
-                              color: Color(0xffB5BBCF),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TurboScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/image2.png',
+                                width: 60, height: 60),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "Turbo",
+                              style: TextStyle(
+                                color: Color(0xffB5BBCF),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/image3.png',
-                              width: 60, height: 60),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "F1",
-                            style: TextStyle(
-                              color: Color(0xffB5BBCF),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const F1Screen()),
+                        );
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/image3.png',
+                                width: 60, height: 60),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "F1",
+                              style: TextStyle(
+                                color: Color(0xffB5BBCF),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/image4.png',
-                              width: 60, height: 60),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "Gybrid",
-                            style: TextStyle(
-                              color: Color(0xffB5BBCF),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const GybridScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/image4.png',
+                                width: 60, height: 60),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "Gybrid",
+                              style: TextStyle(
+                                color: Color(0xffB5BBCF),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Recommendation",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff000000),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RecomendationScreen()),
+                      );
+                    },
+                    child: const Text(
+                      "Recommendation",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff000000),
+                      ),
                     ),
                   ),
-                  Text(
-                    "View All",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff8F95AB),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewAll()),
+                      );
+                    },
+                    child: const Text(
+                      "View All",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff8F95AB),
+                      ),
                     ),
                   ),
                 ],
@@ -364,27 +484,28 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              icon: const Icon(Icons.home),
-              onPressed: () {},
+            InkWell(
+              onTap: () {},
+              child: const Icon(Icons.home, color: Colors.blue, size: 30),
             ),
-            IconButton(
-              icon: const Icon(Icons.message),
-              onPressed: () {},
+            InkWell(
+              onTap: () {},
+              child: const Icon(Icons.message),
             ),
-            IconButton(
-              icon: const Icon(Icons.favorite),
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const FavoritesPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const FavoritesPage()),
                 );
               },
+              child: const Icon(Icons.favorite),
             ),
-            IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: () {},
-            ),
+            InkWell(
+              onTap: () {},
+              child: const Icon(Icons.person),
+            )
           ],
         ),
       ),
