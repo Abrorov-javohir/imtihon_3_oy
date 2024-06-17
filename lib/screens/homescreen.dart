@@ -12,10 +12,10 @@ import 'package:imtihon_3_oy/screens/turbo_screen.dart';
 import 'package:imtihon_3_oy/screens/view_all.dart';
 import 'package:imtihon_3_oy/widget/custom_card.dart';
 import 'package:imtihon_3_oy/widget/custom_card_with_row.dart';
+import 'package:imtihon_3_oy/widget/location_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -36,7 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LocationWidget()),
+                          );
+                        },
                         icon: const Icon(Icons.location_on,
                             size: 40, color: Colors.black),
                       ),
