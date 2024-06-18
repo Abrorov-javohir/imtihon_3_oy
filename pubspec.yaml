@@ -42,6 +42,12 @@ dependencies:
   location: ^6.0.2
   http: ^1.2.1
   adaptive_theme: ^3.6.0
+  lottie: ^3.1.2
+  easy_localization: ^3.0.7
+  shared_preferences: ^2.2.3
+  flutter_svg: ^2.0.10+1
+  json_annotation: ^4.9.0
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +59,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.11
+  json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -76,6 +84,8 @@ flutter:
     - assets/classic_car.png
     - assets/ford_bronko.png
     - assets/Chrysler.png
+    - assets/animations/
+    - resources/langs/
 
 
 
