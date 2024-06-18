@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:imtihon_3_oy/screens/chat_screen.dart';
 import 'package:imtihon_3_oy/screens/classic_car_screen.dart';
 import 'package:imtihon_3_oy/screens/f1_screen.dart';
 import 'package:imtihon_3_oy/screens/favoritescreen.dart';
 import 'package:imtihon_3_oy/screens/gybrid_screen.dart';
 import 'package:imtihon_3_oy/screens/hatchback_screen.dart';
 import 'package:imtihon_3_oy/screens/model_screen.dart';
+import 'package:imtihon_3_oy/screens/profile_screen.dart';
 import 'package:imtihon_3_oy/screens/recomendation_screen.dart';
 import 'package:imtihon_3_oy/screens/sedan_screen.dart';
 import 'package:imtihon_3_oy/screens/turbo_screen.dart';
@@ -16,6 +18,7 @@ import 'package:imtihon_3_oy/widget/location_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -495,7 +498,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(Icons.home, color: Colors.blue, size: 30),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatScreen(),
+                  ),
+                );
+              },
               child: const Icon(Icons.message),
             ),
             InkWell(
@@ -509,7 +519,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(Icons.favorite),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
+              },
               child: const Icon(Icons.person),
             )
           ],

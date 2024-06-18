@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:location/location.dart' as loc;
-import 'package:geocoding/geocoding.dart';
+import 'package:location/location.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'weather_data.dart'; // Import the file where the classes are defined
 
 class LocationWidget extends StatefulWidget {
   @override
@@ -8,7 +10,8 @@ class LocationWidget extends StatefulWidget {
 }
 
 class _LocationWidgetState extends State<LocationWidget> {
-  String _locationMessage = "Loading...";
+  LocationData? _currentLocation;
+  String? _cityName;
 
   @override
   void initState() {
@@ -17,49 +20,63 @@ class _LocationWidgetState extends State<LocationWidget> {
   }
 
   Future<void> _getLocation() async {
-    loc.Location location = loc.Location();
+    Location location = new Location();
 
     bool _serviceEnabled;
-    loc.PermissionStatus _permissionGranted;
-    loc.LocationData _locationData;
+    PermissionStatus _permissionGranted;
 
-    // Xizmat mavjudligini tekshiring
+    // Check if service is enabled
     _serviceEnabled = await location.serviceEnabled();
     if (!_serviceEnabled) {
       _serviceEnabled = await location.requestService();
       if (!_serviceEnabled) {
-        setState(() {
-          _locationMessage = "Location service is not enabled.";
-        });
         return;
       }
     }
 
-    // Ruxsatni tekshiring
+    // Check for permissions
     _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == loc.PermissionStatus.denied) {
+    if (_permissionGranted == PermissionStatus.denied) {
       _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != loc.PermissionStatus.granted) {
-        setState(() {
-          _locationMessage = "Location permission is not granted.";
-        });
+      if (_permissionGranted != PermissionStatus.granted) {
         return;
       }
     }
 
-    // Lokatsiyani oling
-    _locationData = await location.getLocation();
-
-    // Koordinatalarni manzilga o'zgartiring
-    List<Placemark> placemarks = await placemarkFromCoordinates(
-        _locationData.latitude!, _locationData.longitude!);
-
-    Placemark place = placemarks[0];
+    // Get location
+    LocationData _locationData = await location.getLocation();
 
     setState(() {
-      _locationMessage =
-          "Sizning hozirgi lokatsiyangiz: ${place.locality}, ${place.country}";
+      _currentLocation = _locationData;
     });
+
+    // Fetch city name from API
+    await _fetchCityName();
+  }
+
+  Future<void> _fetchCityName() async {
+    if (_currentLocation == null) return;
+
+    final lat = _currentLocation!.latitude;
+    final lon = _currentLocation!.longitude;
+    final apiKey = 'aa72dbb5f2c7488dbbc71f1b735aeca1';
+    final url =
+        'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey';
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final weatherData = WeatherData.fromJson(data);
+        setState(() {
+          _cityName = weatherData.name;
+        });
+      } else {
+        print('Failed to load city name');
+      }
+    } catch (e) {
+      print('Error fetching city name: $e');
+    }
   }
 
   @override
@@ -76,11 +93,11 @@ class _LocationWidgetState extends State<LocationWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Lokatsiya",
+                "Location",
                 style: TextStyle(color: Colors.grey, fontSize: 14),
               ),
               Text(
-                _locationMessage,
+                _cityName != null ? _cityName! : "Loading...",
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 18,

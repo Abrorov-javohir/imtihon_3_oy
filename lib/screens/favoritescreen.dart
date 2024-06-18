@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imtihon_3_oy/screens/chat_screen.dart';
 import 'package:imtihon_3_oy/screens/homescreen.dart';
+import 'package:imtihon_3_oy/screens/profile_screen.dart';
 import 'package:imtihon_3_oy/view_model/favourites_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -56,7 +58,12 @@ class FavoritesPage extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.message),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                );
+              },
             ),
             IconButton(
               icon: const Icon(Icons.favorite, color: Colors.blue, size: 30),
@@ -70,7 +77,13 @@ class FavoritesPage extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.person),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
+              },
             ),
           ],
         ),
